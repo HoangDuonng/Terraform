@@ -16,4 +16,56 @@ module "vm_instance" {
   disk_size     = var.disk_size
   image         = var.image
   network       = var.network
+  host          = module.vm_instance.instance_host
+}
+
+resource "null_resource" "scripts-install" {
+  depends_on = [module.vm_instance]
+  provisioner "file" {
+    source      = "scripts/docker-install.sh"
+    destination = "/tmp/docker-install.sh"
+
+      connection {
+      type     = "ssh"
+      user     = "nguuyen1801"
+      host     = module.vm_instance.instance_host
+      private_key = file("D:/Workspace/Intern/SSH_Keys/.ssh/new-gcp-key")
+    }
+  }
+
+  provisioner "file" {
+    source      = "scripts/harbor-install.sh"
+    destination = "/tmp/harbor-install.sh"
+
+    connection {
+      type     = "ssh"
+      user     = "nguuyen1801"
+      host     = module.vm_instance.instance_host
+      private_key = file("D:/Workspace/Intern/SSH_Keys/.ssh/new-gcp-key")
+    }
+  }
+
+  provisioner "file" {
+    source      = "scripts/jenkins-install.sh"
+    destination = "/tmp/jenkins-install.sh"
+
+    connection {
+      type     = "ssh"
+      user     = "nguuyen1801"
+      host     = module.vm_instance.instance_host
+      private_key = file("D:/Workspace/Intern/SSH_Keys/.ssh/new-gcp-key")
+    }
+  }
+
+  provisioner "file" {
+    source      = "scripts/kubernetes-install.sh"
+    destination = "/tmp/kubernetes-install.sh"
+
+    connection {
+      type     = "ssh"
+      user     = "nguuyen1801"
+      host     = module.vm_instance.instance_host
+      private_key = file("D:/Workspace/Intern/SSH_Keys/.ssh/new-gcp-key")
+    }
+  }
 }

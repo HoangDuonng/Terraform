@@ -1,12 +1,12 @@
-# Thư mục .terraform chứa các plugin và provider đã tải
+# The .terraform directory contains downloaded plugins and providers
 .terraform/
 
-# File terraform.tfstate và backup của nó (chứa trạng thái của hạ tầng, rất nhạy cảm)
+# The terraform.tfstate file and its backup (contains the infrastructure state, highly sensitive)
 *.tfstate
 *.tfstate.backup
 
-# File crash log do Terraform tạo khi xảy ra lỗi nghiêm trọng
+# Crash log file created by Terraform during critical errors
 crash.log
 
-# File lock để đảm bảo trạng thái không bị thay đổi bởi nhiều quy trình Terraform đồng thời
+# Lock file to ensure the state is not modified by concurrent Terraform processes
 *.terraform.lock.hcl

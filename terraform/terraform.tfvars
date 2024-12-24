@@ -26,6 +26,7 @@ prefixes       = [
 vm_name        = "ocr-vm"
 machine_type   = "e2-standard-4"
 zone           = "asia-southeast1-a"
+region         = "asia-southeast1"
 disk_size      = 50
 image          = "ubuntu-os-cloud/ubuntu-2204-lts"
 network        = "default"

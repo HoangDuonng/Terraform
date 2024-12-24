@@ -21,3 +21,7 @@ variable "network" {
 variable "disk_size" {
     type        = number
 }
+
+variable "host" {
+    type        = string
+}
